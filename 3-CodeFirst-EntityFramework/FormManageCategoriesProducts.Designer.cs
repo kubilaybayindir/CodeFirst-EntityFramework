@@ -33,17 +33,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LbxCategories = new System.Windows.Forms.ListBox();
             this.LbxProducts = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.TbxProductName = new System.Windows.Forms.TextBox();
             this.TbxCategoryName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.NudProductUnitPrice = new System.Windows.Forms.NumericUpDown();
+            this.NudProductStock = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ChkProductIsSale = new System.Windows.Forms.CheckBox();
             this.BtDeleteCategory = new System.Windows.Forms.Button();
             this.BtSaveCategory = new System.Windows.Forms.Button();
             this.BtAddCategory = new System.Windows.Forms.Button();
@@ -57,9 +56,11 @@
             this.LblProductQantity = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.TbxProductDesc = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.NudProductUnitPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NudProductStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,23 +100,14 @@
             this.LbxProducts.Name = "LbxProducts";
             this.LbxProducts.Size = new System.Drawing.Size(247, 334);
             this.LbxProducts.TabIndex = 17;
+            this.LbxProducts.SelectedIndexChanged += new System.EventHandler(this.LbxProducts_SelectedIndexChanged);
             // 
-            // textBox1
+            // TbxProductName
             // 
-            this.textBox1.Location = new System.Drawing.Point(566, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 23);
-            this.textBox1.TabIndex = 18;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(566, 156);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.ScrollAlwaysVisible = true;
-            this.listBox2.Size = new System.Drawing.Size(222, 94);
-            this.listBox2.TabIndex = 19;
+            this.TbxProductName.Location = new System.Drawing.Point(566, 90);
+            this.TbxProductName.Name = "TbxProductName";
+            this.TbxProductName.Size = new System.Drawing.Size(222, 23);
+            this.TbxProductName.TabIndex = 18;
             // 
             // TbxCategoryName
             // 
@@ -133,20 +125,30 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Category:";
             // 
-            // numericUpDown1
+            // NudProductUnitPrice
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(566, 283);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(222, 23);
-            this.numericUpDown1.TabIndex = 22;
+            this.NudProductUnitPrice.DecimalPlaces = 2;
+            this.NudProductUnitPrice.Location = new System.Drawing.Point(566, 283);
+            this.NudProductUnitPrice.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.NudProductUnitPrice.Name = "NudProductUnitPrice";
+            this.NudProductUnitPrice.Size = new System.Drawing.Size(222, 23);
+            this.NudProductUnitPrice.TabIndex = 22;
             // 
-            // numericUpDown2
+            // NudProductStock
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(566, 339);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(222, 23);
-            this.numericUpDown2.TabIndex = 23;
+            this.NudProductStock.Location = new System.Drawing.Point(566, 339);
+            this.NudProductStock.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.NudProductStock.Name = "NudProductStock";
+            this.NudProductStock.Size = new System.Drawing.Size(222, 23);
+            this.NudProductStock.TabIndex = 23;
             // 
             // label3
             // 
@@ -160,7 +162,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(566, 137);
+            this.label4.Location = new System.Drawing.Point(566, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 25;
@@ -184,15 +186,15 @@
             this.label7.TabIndex = 27;
             this.label7.Text = "Stock Quantity";
             // 
-            // checkBox1
+            // ChkProductIsSale
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(567, 388);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(58, 19);
-            this.checkBox1.TabIndex = 28;
-            this.checkBox1.Text = "Is Sale";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ChkProductIsSale.AutoSize = true;
+            this.ChkProductIsSale.Location = new System.Drawing.Point(567, 388);
+            this.ChkProductIsSale.Name = "ChkProductIsSale";
+            this.ChkProductIsSale.Size = new System.Drawing.Size(58, 19);
+            this.ChkProductIsSale.TabIndex = 28;
+            this.ChkProductIsSale.Text = "Is Sale";
+            this.ChkProductIsSale.UseVisualStyleBackColor = true;
             // 
             // BtDeleteCategory
             // 
@@ -242,6 +244,7 @@
             this.BtDeleteProduct.Size = new System.Drawing.Size(28, 22);
             this.BtDeleteProduct.TabIndex = 47;
             this.BtDeleteProduct.UseVisualStyleBackColor = true;
+            this.BtDeleteProduct.Click += new System.EventHandler(this.BtDeleteProduct_Click);
             // 
             // BtSaveProduct
             // 
@@ -251,6 +254,7 @@
             this.BtSaveProduct.Size = new System.Drawing.Size(28, 22);
             this.BtSaveProduct.TabIndex = 46;
             this.BtSaveProduct.UseVisualStyleBackColor = true;
+            this.BtSaveProduct.Click += new System.EventHandler(this.BtSaveProduct_Click);
             // 
             // BtAddProduct
             // 
@@ -260,6 +264,7 @@
             this.BtAddProduct.Size = new System.Drawing.Size(28, 22);
             this.BtAddProduct.TabIndex = 45;
             this.BtAddProduct.UseVisualStyleBackColor = true;
+            this.BtAddProduct.Click += new System.EventHandler(this.BtAddProduct_Click);
             // 
             // BtRefreshProduct
             // 
@@ -269,6 +274,7 @@
             this.BtRefreshProduct.Size = new System.Drawing.Size(28, 22);
             this.BtRefreshProduct.TabIndex = 44;
             this.BtRefreshProduct.UseVisualStyleBackColor = true;
+            this.BtRefreshProduct.Click += new System.EventHandler(this.BtRefreshProduct_Click);
             // 
             // LblCategoryQantity
             // 
@@ -311,9 +317,21 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.TbxProductDesc);
             this.splitContainer1.Size = new System.Drawing.Size(800, 440);
             this.splitContainer1.SplitterDistance = 286;
             this.splitContainer1.TabIndex = 52;
+            // 
+            // TbxProductDesc
+            // 
+            this.TbxProductDesc.Location = new System.Drawing.Point(276, 149);
+            this.TbxProductDesc.Multiline = true;
+            this.TbxProductDesc.Name = "TbxProductDesc";
+            this.TbxProductDesc.Size = new System.Drawing.Size(222, 100);
+            this.TbxProductDesc.TabIndex = 53;
             // 
             // FormManageCategoriesProducts
             // 
@@ -333,17 +351,16 @@
             this.Controls.Add(this.BtSaveCategory);
             this.Controls.Add(this.BtAddCategory);
             this.Controls.Add(this.BtRefreshCategory);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.ChkProductIsSale);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.NudProductStock);
+            this.Controls.Add(this.NudProductUnitPrice);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TbxCategoryName);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TbxProductName);
             this.Controls.Add(this.LbxProducts);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
@@ -354,8 +371,10 @@
             this.Name = "FormManageCategoriesProducts";
             this.Text = "Manage Categories Products";
             this.Load += new System.EventHandler(this.FormManageCategoriesProducts_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NudProductUnitPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NudProductStock)).EndInit();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -369,17 +388,16 @@
         private Label label1;
         private ListBox LbxCategories;
         private ListBox LbxProducts;
-        private TextBox textBox1;
-        private ListBox listBox2;
+        private TextBox TbxProductName;
         private TextBox TbxCategoryName;
         private Label label2;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
+        private NumericUpDown NudProductUnitPrice;
+        private NumericUpDown NudProductStock;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label7;
-        private CheckBox checkBox1;
+        private CheckBox ChkProductIsSale;
         private Button BtDeleteCategory;
         private Button BtSaveCategory;
         private Button BtAddCategory;
@@ -393,5 +411,6 @@
         private Label LblProductQantity;
         private Label label11;
         private SplitContainer splitContainer1;
+        private TextBox TbxProductDesc;
     }
 }

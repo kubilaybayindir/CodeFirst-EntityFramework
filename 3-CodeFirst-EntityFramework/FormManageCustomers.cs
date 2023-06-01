@@ -85,7 +85,6 @@ namespace _3_CodeFirst_EntityFramework
                 if (dialogResult == DialogResult.Yes)
                 {
                     ContextHelper.db.Customers.Remove(customer);
-
                     if (ContextHelper.db.SaveChanges() > 0)
                     {
                         LoadCustomers();

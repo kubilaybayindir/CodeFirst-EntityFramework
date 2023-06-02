@@ -155,7 +155,7 @@ namespace _3_CodeFirst_EntityFramework
                 OrderDate=orderDate,
                 State=OrderState.Reserved,
                 Products = _orderProducts,
-                CustomerId=customer.Id
+                Customer=customer
             };
 
             ContextHelper.db.Orders.Add(order);

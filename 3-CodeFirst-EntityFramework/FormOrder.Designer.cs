@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrder));
             this.BtManageCustomers = new System.Windows.Forms.Button();
             this.DgvOrderDetails = new System.Windows.Forms.DataGridView();
@@ -43,7 +44,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.OrderReserved = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrderShipped = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrderDelivered = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrderDetails)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtManageCustomers
@@ -67,6 +73,7 @@
             // 
             // LbxOrders
             // 
+            this.LbxOrders.ContextMenuStrip = this.contextMenuStrip1;
             this.LbxOrders.FormattingEnabled = true;
             this.LbxOrders.ItemHeight = 15;
             this.LbxOrders.Location = new System.Drawing.Point(12, 131);
@@ -143,6 +150,7 @@
             this.button3.Text = "All Orders";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // BtCategoriesProductsManager
             // 
@@ -184,6 +192,38 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Orders:";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OrderReserved,
+            this.OrderShipped,
+            this.OrderDelivered});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.contextMenuStrip1.ShowImageMargin = false;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 70);
+            // 
+            // OrderReserved
+            // 
+            this.OrderReserved.Name = "OrderReserved";
+            this.OrderReserved.Size = new System.Drawing.Size(155, 22);
+            this.OrderReserved.Text = "Reserved";
+            this.OrderReserved.Click += new System.EventHandler(this.OrderReserved_Click);
+            // 
+            // OrderShipped
+            // 
+            this.OrderShipped.Name = "OrderShipped";
+            this.OrderShipped.Size = new System.Drawing.Size(155, 22);
+            this.OrderShipped.Text = "Shipped";
+            this.OrderShipped.Click += new System.EventHandler(this.OrderShipped_Click);
+            // 
+            // OrderDelivered
+            // 
+            this.OrderDelivered.Name = "OrderDelivered";
+            this.OrderDelivered.Size = new System.Drawing.Size(155, 22);
+            this.OrderDelivered.Text = "Delivered";
+            this.OrderDelivered.Click += new System.EventHandler(this.OrderDelivered_Click);
+            // 
             // FormOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -210,6 +250,7 @@
             this.Text = "Orders";
             this.Load += new System.EventHandler(this.FormOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrderDetails)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +272,9 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem OrderReserved;
+        private ToolStripMenuItem OrderShipped;
+        private ToolStripMenuItem OrderDelivered;
     }
 }

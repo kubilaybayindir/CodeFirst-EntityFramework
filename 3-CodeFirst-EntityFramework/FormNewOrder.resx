@@ -89,14 +89,14 @@
         UucqahznLHsBJ2V5oVQhanwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtRemoveProductFromOrder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAFFJREFUOE9j
         GJ5gOZTGBvDJgQFIwX8gfgXmoQKQGEiOoCEwhciGYBPDC5A1kKwZBmAaydIMAhQZANMMopHZRAFsGog2
         hCrRiE8BQc1DDjAwAABRRSsZuNWFWwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtAddProductToOrder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAI1JREFUOE/N
         ku0NgCAMRBlB3cJh/KMb6LY6jCvYF8BUQT5iYnzJJQ1cD4qaX9OJJifqYjDvolnUOFGzlg3CsNoyCnvJ

@@ -29,43 +29,44 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewOrder));
-            this.LbxOrders = new System.Windows.Forms.ListBox();
+            this.LbxProducts = new System.Windows.Forms.ListBox();
             this.DgvOrderDetails = new System.Windows.Forms.DataGridView();
             this.BtSaveAndClose = new System.Windows.Forms.Button();
             this.BtNewOrderr = new System.Windows.Forms.Button();
             this.BtGoCategoryManagerPage = new System.Windows.Forms.Button();
-            this.CbxOrderState = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CbxCategories = new System.Windows.Forms.ComboBox();
+            this.TbxOrderName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.BtRemoveProductFromOrder = new System.Windows.Forms.Button();
+            this.BtAddProductToOrder = new System.Windows.Forms.Button();
+            this.DtpOrderDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CbxCustomers = new System.Windows.Forms.ComboBox();
             this.BtGoCustomerManagerPage = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.LblOrderUnitQuantity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrderDetails)).BeginInit();
             this.SuspendLayout();
             // 
-            // LbxOrders
+            // LbxProducts
             // 
-            this.LbxOrders.FormattingEnabled = true;
-            this.LbxOrders.ItemHeight = 15;
-            this.LbxOrders.Location = new System.Drawing.Point(12, 120);
-            this.LbxOrders.Name = "LbxOrders";
-            this.LbxOrders.Size = new System.Drawing.Size(247, 274);
-            this.LbxOrders.TabIndex = 4;
+            this.LbxProducts.FormattingEnabled = true;
+            this.LbxProducts.ItemHeight = 15;
+            this.LbxProducts.Location = new System.Drawing.Point(12, 120);
+            this.LbxProducts.Name = "LbxProducts";
+            this.LbxProducts.Size = new System.Drawing.Size(247, 274);
+            this.LbxProducts.TabIndex = 4;
             // 
             // DgvOrderDetails
             // 
+            this.DgvOrderDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvOrderDetails.Location = new System.Drawing.Point(294, 120);
+            this.DgvOrderDetails.Location = new System.Drawing.Point(268, 120);
             this.DgvOrderDetails.Name = "DgvOrderDetails";
             this.DgvOrderDetails.RowTemplate.Height = 25;
-            this.DgvOrderDetails.Size = new System.Drawing.Size(494, 274);
+            this.DgvOrderDetails.Size = new System.Drawing.Size(520, 274);
             this.DgvOrderDetails.TabIndex = 3;
             // 
             // BtSaveAndClose
@@ -79,6 +80,7 @@
             this.BtSaveAndClose.Text = " Save And Close";
             this.BtSaveAndClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtSaveAndClose.UseVisualStyleBackColor = true;
+            this.BtSaveAndClose.Click += new System.EventHandler(this.BtSaveAndClose_Click);
             // 
             // BtNewOrderr
             // 
@@ -91,6 +93,7 @@
             this.BtNewOrderr.Text = "New Order";
             this.BtNewOrderr.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtNewOrderr.UseVisualStyleBackColor = true;
+            this.BtNewOrderr.Click += new System.EventHandler(this.BtNewOrderr_Click);
             // 
             // BtGoCategoryManagerPage
             // 
@@ -102,20 +105,21 @@
             this.BtGoCategoryManagerPage.UseVisualStyleBackColor = true;
             this.BtGoCategoryManagerPage.Click += new System.EventHandler(this.BtGoCategoryManagerPage_Click);
             // 
-            // CbxOrderState
+            // CbxCategories
             // 
-            this.CbxOrderState.FormattingEnabled = true;
-            this.CbxOrderState.Location = new System.Drawing.Point(100, 91);
-            this.CbxOrderState.Name = "CbxOrderState";
-            this.CbxOrderState.Size = new System.Drawing.Size(121, 23);
-            this.CbxOrderState.TabIndex = 13;
+            this.CbxCategories.FormattingEnabled = true;
+            this.CbxCategories.Location = new System.Drawing.Point(100, 91);
+            this.CbxCategories.Name = "CbxCategories";
+            this.CbxCategories.Size = new System.Drawing.Size(121, 23);
+            this.CbxCategories.TabIndex = 13;
+            this.CbxCategories.SelectedIndexChanged += new System.EventHandler(this.CbxCategories_SelectedIndexChanged);
             // 
-            // textBox1
+            // TbxOrderName
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 23);
-            this.textBox1.TabIndex = 19;
+            this.TbxOrderName.Location = new System.Drawing.Point(96, 56);
+            this.TbxOrderName.Name = "TbxOrderName";
+            this.TbxOrderName.Size = new System.Drawing.Size(163, 23);
+            this.TbxOrderName.TabIndex = 19;
             // 
             // label2
             // 
@@ -138,45 +142,47 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(303, 60);
+            this.label3.Location = new System.Drawing.Point(277, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 22;
             this.label3.Text = "Date :";
             // 
-            // button1
+            // BtRemoveProductFromOrder
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(414, 85);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 29);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Remove Product";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtRemoveProductFromOrder.Image = ((System.Drawing.Image)(resources.GetObject("BtRemoveProductFromOrder.Image")));
+            this.BtRemoveProductFromOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtRemoveProductFromOrder.Location = new System.Drawing.Point(388, 85);
+            this.BtRemoveProductFromOrder.Name = "BtRemoveProductFromOrder";
+            this.BtRemoveProductFromOrder.Size = new System.Drawing.Size(115, 29);
+            this.BtRemoveProductFromOrder.TabIndex = 24;
+            this.BtRemoveProductFromOrder.Text = "Remove Product";
+            this.BtRemoveProductFromOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtRemoveProductFromOrder.UseVisualStyleBackColor = true;
+            this.BtRemoveProductFromOrder.Click += new System.EventHandler(this.BtRemoveProductFromOrder_Click);
             // 
-            // button2
+            // BtAddProductToOrder
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(294, 85);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 29);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Add Product";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtAddProductToOrder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtAddProductToOrder.Image = ((System.Drawing.Image)(resources.GetObject("BtAddProductToOrder.Image")));
+            this.BtAddProductToOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtAddProductToOrder.Location = new System.Drawing.Point(268, 85);
+            this.BtAddProductToOrder.Name = "BtAddProductToOrder";
+            this.BtAddProductToOrder.Size = new System.Drawing.Size(96, 29);
+            this.BtAddProductToOrder.TabIndex = 23;
+            this.BtAddProductToOrder.Text = "Add Product";
+            this.BtAddProductToOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtAddProductToOrder.UseVisualStyleBackColor = true;
+            this.BtAddProductToOrder.Click += new System.EventHandler(this.BtAddProductToOrder_Click);
             // 
-            // dateTimePicker1
+            // DtpOrderDate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(362, 56);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(140, 23);
-            this.dateTimePicker1.TabIndex = 25;
-            this.dateTimePicker1.Value = new System.DateTime(2023, 5, 30, 0, 0, 0, 0);
+            this.DtpOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpOrderDate.Location = new System.Drawing.Point(336, 56);
+            this.DtpOrderDate.Name = "DtpOrderDate";
+            this.DtpOrderDate.Size = new System.Drawing.Size(140, 23);
+            this.DtpOrderDate.TabIndex = 25;
+            this.DtpOrderDate.Value = new System.DateTime(2023, 5, 30, 0, 0, 0, 0);
             // 
             // label4
             // 
@@ -187,13 +193,13 @@
             this.label4.TabIndex = 27;
             this.label4.Text = "Customers :";
             // 
-            // comboBox1
+            // CbxCustomers
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(587, 56);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 23);
-            this.comboBox1.TabIndex = 26;
+            this.CbxCustomers.FormattingEnabled = true;
+            this.CbxCustomers.Location = new System.Drawing.Point(587, 56);
+            this.CbxCustomers.Name = "CbxCustomers";
+            this.CbxCustomers.Size = new System.Drawing.Size(141, 23);
+            this.CbxCustomers.TabIndex = 26;
             // 
             // BtGoCustomerManagerPage
             // 
@@ -214,14 +220,14 @@
             this.label5.TabIndex = 29;
             this.label5.Text = "Order Unit Qantity:";
             // 
-            // label6
+            // LblOrderUnitQuantity
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(118, 399);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 15);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "0";
+            this.LblOrderUnitQuantity.AutoSize = true;
+            this.LblOrderUnitQuantity.Location = new System.Drawing.Point(118, 399);
+            this.LblOrderUnitQuantity.Name = "LblOrderUnitQuantity";
+            this.LblOrderUnitQuantity.Size = new System.Drawing.Size(13, 15);
+            this.LblOrderUnitQuantity.TabIndex = 30;
+            this.LblOrderUnitQuantity.Text = "0";
             // 
             // FormNewOrder
             // 
@@ -229,28 +235,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 421);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.LblOrderUnitQuantity);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtGoCustomerManagerPage);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.CbxCustomers);
+            this.Controls.Add(this.DtpOrderDate);
+            this.Controls.Add(this.BtRemoveProductFromOrder);
+            this.Controls.Add(this.BtAddProductToOrder);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.CbxOrderState);
+            this.Controls.Add(this.TbxOrderName);
+            this.Controls.Add(this.CbxCategories);
             this.Controls.Add(this.BtGoCategoryManagerPage);
             this.Controls.Add(this.BtSaveAndClose);
             this.Controls.Add(this.BtNewOrderr);
-            this.Controls.Add(this.LbxOrders);
+            this.Controls.Add(this.LbxProducts);
             this.Controls.Add(this.DgvOrderDetails);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewOrder";
             this.Text = "New Order";
+            this.Load += new System.EventHandler(this.FormNewOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrderDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -259,23 +266,23 @@
 
         #endregion
 
-        private ListBox LbxOrders;
+        private ListBox LbxProducts;
         private DataGridView DgvOrderDetails;
         private Button BtSaveAndClose;
         private Button BtNewOrderr;
         private Button BtGoCategoryManagerPage;
-        private ComboBox CbxOrderState;
-        private TextBox textBox1;
+        private ComboBox CbxCategories;
+        private TextBox TbxOrderName;
         private Label label2;
         private Label label1;
         private Label label3;
-        private Button button1;
-        private Button button2;
-        private DateTimePicker dateTimePicker1;
+        private Button BtRemoveProductFromOrder;
+        private Button BtAddProductToOrder;
+        private DateTimePicker DtpOrderDate;
         private Label label4;
-        private ComboBox comboBox1;
+        private ComboBox CbxCustomers;
         private Button BtGoCustomerManagerPage;
         private Label label5;
-        private Label label6;
+        private Label LblOrderUnitQuantity;
     }
 }

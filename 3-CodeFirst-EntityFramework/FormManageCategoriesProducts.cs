@@ -25,6 +25,8 @@ namespace _3_CodeFirst_EntityFramework
             LoadCategories();
 
         }
+
+        #region CATEGORY
         private void LoadCategories()
         {
             LbxCategories.DataSource = null;
@@ -34,8 +36,6 @@ namespace _3_CodeFirst_EntityFramework
 
             LblCategoryQantity.Text = LbxCategories.Items.Count.ToString();
         }
-
-        #region CATEGORY
         private void BtRefreshCategory_Click(object sender, EventArgs e)
         {
             LoadCategories();
